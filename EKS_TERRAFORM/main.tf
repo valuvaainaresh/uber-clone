@@ -32,3 +32,11 @@ data "aws_subnets" "public" {
     values = [data.aws_vpc.default.id]
   }
 }
+#cluster provision
+resource "aws_eks_cluster" "terraform" {
+  name     = "EKS_CLOUD"
+  role_arn = aws_iam_role.example.arn
+
+  vpc_config {
+    subnet_ids = data.aws_subnets.public.ids
+  }
