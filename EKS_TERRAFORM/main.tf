@@ -40,3 +40,4 @@ resource "aws_eks_cluster" "terraform" {
   vpc_config {
     subnet_ids = data.aws_subnets.public.ids
   }
+}
